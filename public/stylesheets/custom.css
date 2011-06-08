@@ -26,7 +26,7 @@ section {
 
 a {
 	color: #09c;
-	text-docoration: none;
+	text-decoration: none;
 }
 
 a:hover {
@@ -35,7 +35,7 @@ a:hover {
 }
 
 a:visited {
-	color: #69;
+	color: #069;
 }
 
 /* Navigation */
@@ -84,7 +84,7 @@ a.signup_button {
 	font-size: 150%;
 	font-weight: bold;
 	padding: 20px;
-	text-decoration: none;
+	
 }
 
 /* Round Corners */
