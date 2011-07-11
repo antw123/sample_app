@@ -43,7 +43,7 @@ module SessionsHelper
    def clear_return_to
      session[:return_to] = nil
    end
-     
+  
    private
    
      def user_from_remember_token
