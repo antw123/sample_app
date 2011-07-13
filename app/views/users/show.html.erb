@@ -5,10 +5,26 @@
 			<%= gravatar_for @user %>
 			<%= @user.name %>
 		</h1>
+		<% if @user.microposts.any? %>
+			<table class="microposts" summary="User microposts">
+				<% @microposts.each do |micropost| %>
+				<tr>
+					<td class="micropost">
+						<span class="content"><%= micropost.content %></span>
+						<span class="timestamp">
+							Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+						</span>
+					</td>
+				</tr>
+				<% end %>
+			 </table>
+			 <%= will_paginate @microposts %>
+		<% end %>
 		</td>
 		<td class="sidebar round">
 			<strong>Name</strong> <%= @user.name %><br />
-			<strong>URL</strong>  <%= link_to user_path(@user), user_path(@user) %>
+			<strong>URL</strong>  <%= link_to user_path(@user), user_path(@user) %><br />
+			<strong>Tweets</strong> <%= @user.microposts.count %>
 		</td>
 	</tr>
 </table>
