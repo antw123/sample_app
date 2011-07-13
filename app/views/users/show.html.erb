@@ -1,12 +1,12 @@
 <table class="profile" summary="Profile information">
 	<tr>
-		<td class="main">
+	  <td class="main">
 		<h1>
 			<%= gravatar_for @user %>
 			<%= @user.name %>
 		</h1>
 		<% if @user.microposts.any? %>
-			<table class="microposts" summary="User microposts">
+		    <table class="microposts" summary="User microposts">
 				<% @microposts.each do |micropost| %>
 				<tr>
 					<td class="micropost">
@@ -17,7 +17,7 @@
 					</td>
 				</tr>
 				<% end %>
-			 </table>
+			   </table>
 			 <%= will_paginate @microposts %>
 		<% end %>
 		</td>
