@@ -15,6 +15,14 @@
 							Posted <%= time_ago_in_words(micropost.created_at) %> ago.
 						</span>
 					</td>
+					<% user = micropost.user rescue User.find(micropost.user_id) %>
+					<% if current_user?(user) %>
+						<td>
+							<%= link_to "delete", micropost, :method => :delete,
+													         :confirm => "You sure?",
+					  									     :title => micropost.content %>
+					    </td>
+					<% end %>
 				</tr>
 				<% end %>
 			   </table>
@@ -24,7 +32,8 @@
 		<td class="sidebar round">
 			<strong>Name</strong> <%= @user.name %><br />
 			<strong>URL</strong>  <%= link_to user_path(@user), user_path(@user) %><br />
-			<strong>Tweets</strong> <%= @user.microposts.count %>
+			<strong>Microposts</strong> <%= @user.microposts.count %>
 		</td>
 	</tr>
 </table>
+
